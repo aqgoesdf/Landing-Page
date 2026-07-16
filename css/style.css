@@ -23,3 +23,10 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .tec_estudos{
+              content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition);
+        }

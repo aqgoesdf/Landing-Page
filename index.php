@@ -80,7 +80,7 @@
 
     <!-- SEÇÃO 3: TECNOLOGIAS & ESTUDOS em bg-1 -->
     <section id="tecnologias" class="py-20 max-w-6xl mx-auto px-4">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 ">
             <h2 class="text-3xl font-bold text-gradient">Tecnologias &amp; Especialidades</h2>
             <p class="text-text-muted mt-2">O conjunto de ferramentas que utilizo para criar soluções completas.</p>
         </div>
@@ -94,21 +94,21 @@
             </div>
 
             <!-- Card CSS -->
-            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-transform">
+            <div class="bg-bg-card p-6 tec_estudos rounded-xl border border-custom hover:scale-[1.02] transition-transform">
                 <div class="w-12 h-12 rounded-lg bg-grad-css flex items-center justify-center text-white font-extrabold text-lg mb-4 shadow-lg">CSS</div>
                 <h3 class="text-lg font-bold mb-1 text-text-primary">Estilização</h3>
                 <p class="text-text-muted text-xs leading-relaxed">Layouts responsivos, animações fluidas e design moderno sob medida.</p>
             </div>
 
             <!-- Card JS -->
-            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-transform">
+            <div class="bg-bg-card p-6 tec_estudos rounded-xl border border-custom hover:scale-[1.02] transition-transform">
                 <div class="w-12 h-12 rounded-lg bg-grad-js flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">JS</div>
                 <h3 class="text-lg font-bold mb-1 text-text-primary">Interatividade</h3>
                 <p class="text-text-muted text-xs leading-relaxed">Comportamentos dinâmicos, consumo de APIs e lógica client-side.</p>
             </div>
 
             <!-- Card Python -->
-            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-transform">
+            <div class="bg-bg-card p-6 tec_estudos rounded-xl border border-custom hover:scale-[1.02] transition-transform">
                 <div class="w-12 h-12 rounded-lg bg-grad-python flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">PY</div>
                 <h3 class="text-lg font-bold mb-1 text-text-primary">Back-End &amp; Lógica</h3>
                 <p class="text-text-muted text-xs leading-relaxed">Desenvolvimento focado em lógica, scripts de automação e APIs robustas.</p>

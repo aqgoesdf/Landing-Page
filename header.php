@@ -42,7 +42,7 @@
                 <a href="#trajetoria" class="hover:text-white transition-colors">Trajetória</a>
                 <a href="#tecnologias" class="hover:text-white transition-colors">Tecnologias</a>
             </nav>
-            <a href="https://wa.me/seunumerodetelefone" target="_blank" class="bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+            <a href="https://web.whatsapp.com/" target="_blank" class="bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
                 Fale Comigo
             </a>
         </div>

@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
- 
-
     <!-- SEÇÃO 1: HERO (SOBRE) com background grad-hero -->
     <section id="sobre" class="relative py-20 md:py-32 bg-grad-hero">
         <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-12 gap-8 items-center">
@@ -128,6 +126,5 @@
             </a>
         </div>
     </section>
-
 
 <?php get_footer(); ?>

@@ -11,7 +11,7 @@
                     Construindo soluções web <br><span class="text-gradient">robustas e modernas</span>.
                 </h1>
                 <p class="text-text-muted text-lg leading-relaxed">
-                    Olá! Sou o especialista por trás da <strong>AQGoes</strong>. Sou desenvolvedor Full Stack focado em criar aplicações modernas, funcionais e otimizadas. Unindo uma sólida experiência em suporte e análise técnica no setor público com o estudo constante das tecnologias mais demandadas do mercado, transformo ideias em código de alto desempenho.
+                    Olá! Sou o especialista por trás da <strong>AqGoEs</strong>. Sou desenvolvedor Full Stack focado em criar aplicações modernas, funcionais e otimizadas. Unindo uma sólida experiência em suporte e análise técnica no setor público com o estudo constante das tecnologias mais demandadas do mercado, transformo ideias em código de alto desempenho.
                 </p>
                 <div class="pt-4 flex flex-wrap gap-4">
                     <a href="#trajetoria" class="border border-custom hover:border-[#6c63ff] px-6 py-3 rounded-lg font-medium transition-all">
@@ -24,7 +24,7 @@
                 <div class="w-72 h-72 rounded-full bg-grad-primary p-1 shadow-2xl">
                     <div class="w-full h-full bg-bg rounded-full flex flex-col items-center justify-center text-center p-6">
                         <span class="text-5xl mb-2">💻</span>
-                        <span class="font-bold text-xl text-text-primary">AQGoes</span>
+                        <span class="font-bold text-xl text-text-primary">AqGoEs</span>
                         <span class="text-sm text-text-muted">Brasília - DF</span>
                     </div>
                 </div>

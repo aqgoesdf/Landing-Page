@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQGoes | Web Developer Full Stack</title>
+    <title>AqGoEs | Web Developer Full Stack</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -36,7 +36,7 @@
     <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-[#0a0a0f]/90 backdrop-blur-md border-b border-custom">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-wider text-gradient">AQGoes</a>
+            <a href="#" class="text-2xl font-bold tracking-wider text-gradient">AqGoEs</a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
                 <a href="#trajetoria" class="hover:text-white transition-colors">Trajetória</a>

@@ -1,0 +1,57 @@
+/*
+Theme Name: AQGoes Portfolio
+Theme URI: https://aqgoes.com
+Author: AQGoes
+Author URI: https://aqgoes.com
+Description: Tema WordPress moderno para portfólio de desenvolvedor Full Stack. Construído com Tailwind CSS, design escuro com gradientes, timeline de experiência e seção de tecnologias. Totalmente responsivo e otimizado para 2026.
+Version: 1.0.0
+Requires at least: 6.4
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqgoes
+Tags: portfolio, one-page, dark-mode, custom-colors, translation-ready
+*/
+
+/* Estilos base do tema (Tailwind é carregado via CDN no header.php) */
+
+:root {
+    --bg: #0a0a0f;
+    --bg-2: #12121a;
+    --bg-card: #1a1a28;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e8e8f0;
+    --text-muted: #888899;
+    --grad-primary: linear-gradient(135deg, #6c63ff 0%, #ff6584 50%, #ffa94d 100%);
+    --grad-hero: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a1a1f 100%);
+    --grad-html: linear-gradient(135deg, #e34c26, #f06529);
+    --grad-css: linear-gradient(135deg, #264de4, #2965f1);
+    --grad-js: linear-gradient(135deg, #f7df1e, #ffa500);
+    --grad-python: linear-gradient(135deg, #3776ab, #ffd43b);
+}
+
+.border-custom {
+    border-color: var(--border);
+}
+
+.text-gradient {
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ajustes de compatibilidade com o admin bar do WordPress */
+body.admin-bar header.sticky {
+    top: 32px;
+}
+@media screen and (max-width: 782px) {
+    body.admin-bar header.sticky {
+        top: 46px;
+    }
+}
+
+/* Acessibilidade: foco visível em links do menu */
+a:focus-visible {
+    outline: 2px solid #6c63ff;
+    outline-offset: 2px;
+}

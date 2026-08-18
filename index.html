@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AqGoEs | Web Developer Full Stack</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Ativa o modo escuro baseado na classe 'dark' no <html>
+            theme: {
+                extend: {
+                    colors: {
+                        bg: 'var(--bg)',
+                        'bg-2': 'var(--bg-2)',
+                        'bg-card': 'var(--bg-card)',
+                        'text-primary': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                    },
+                    backgroundImage: {
+                        'grad-primary': 'linear-gradient(135deg, #6c63ff 0%, #ff6584 50%, #ffa94d 100%)',
+                        'grad-hero': 'var(--grad-hero)',
+                        'grad-html': 'linear-gradient(135deg, #e34c26, #f06529)',
+                        'grad-css': 'linear-gradient(135deg, #264de4, #2965f1)',
+                        'grad-js': 'linear-gradient(135deg, #f7df1e, #ffa500)',
+                        'grad-python': 'linear-gradient(135deg, #3776ab, #ffd43b)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Variáveis de cores para o Tema Escuro (Padrão) */
+        :root {
+            --bg: #0a0a0f;
+            --bg-2: #12121a;
+            --bg-card: #1a1a28;
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #e8e8f0;
+            --text-muted: #888899;
+            --grad-primary: linear-gradient(135deg, #6c63ff 0%, #ff6584 50%, #ffa94d 100%);
+            --grad-hero: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a1a1f 100%);
+            --header-bg: rgba(10, 10, 15, 0.9);
+            --menu-bg: rgba(10, 10, 15, 0.95);
+        }
+
+        /* Override para o Tema Claro */
+        html.light {
+            --bg: #f8fafc;
+            --bg-2: #f1f5f9;
+            --bg-card: #ffffff;
+            --border: rgba(0, 0, 0, 0.1);
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --grad-hero: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f1f5f9 100%);
+            --header-bg: rgba(248, 250, 252, 0.9);
+            --menu-bg: rgba(248, 250, 252, 0.95);
+        }
+
+        .border-custom {
+            border-color: var(--border);
+        }
+
+        .text-gradient {
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-backdrop {
+            background-color: var(--header-bg);
+        }
+
+        .menu-backdrop {
+            background-color: var(--menu-bg);
+        }
+    </style>
+</head>
+<body class="bg-bg text-text-primary font-sans antialiased scroll-smooth transition-colors duration-300">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 header-backdrop backdrop-blur-md border-b border-custom transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center relative">
+            
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-wider text-gradient z-20">AqGoEs</a>
+
+            <div class="flex items-center gap-2 z-20 md:hidden">
+                <!-- Botão Dark Mode (Mobile) -->
+                <button class="theme-toggle p-2 rounded-lg border border-custom text-text-primary hover:bg-bg-card transition-colors" aria-label="Alternar Tema">
+                    <span class="icon-moon text-lg">🌙</span>
+                    <span class="icon-sun text-lg hidden">☀️</span>
+                </button>
+
+                <!-- Botão Hambúrguer (Mobile) -->
+                <button id="menu-btn" aria-label="Abrir Menu" aria-expanded="false" class="text-text-primary hover:text-white focus:outline-none p-2">
+                    <svg id="icon-open" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Nav (Desktop + Mobile Dropdown) -->
+            <nav id="menu" class="hidden absolute top-full left-0 w-full menu-backdrop backdrop-blur-lg border-b border-custom p-6 flex-col space-y-4 md:static md:flex md:flex-row md:items-center md:space-y-0 md:space-x-8 md:w-auto md:bg-transparent md:border-none md:p-0 transition-all duration-300 z-10">
+                <a href="#sobre" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Sobre</a>
+                <a href="#trajetoria" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Trajetória</a>
+                <a href="#tecnologias" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Tecnologias</a>
+
+                <a href="blog.html" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Artigos</a>
+                
+                <div class="pt-4 md:pt-0 border-t border-custom md:border-none md:hidden">
+                    <a href="https://wa.me/seunumerodetelefone" target="_blank" class="block text-center bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                        Fale Comigo
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Ações Desktop (Fale Comigo + Dark Mode) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button class="theme-toggle p-2 rounded-lg border border-custom text-text-primary hover:bg-bg-card transition-colors cursor-pointer" aria-label="Alternar Tema">
+                    <span class="icon-moon text-lg">🌙</span>
+                    <span class="icon-sun text-lg hidden">☀️</span>
+                </button>
+                <a href="https://wa.me/seunumerodetelefone" target="_blank" class="bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                    Fale Comigo
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- SEÇÃO 1: HERO (SOBRE) -->
+    <section id="sobre" class="relative py-20 md:py-32 bg-grad-hero transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7 space-y-6">
+                <span class="text-gradient font-bold tracking-wider uppercase text-sm block">Desenvolvedor Web Full Stack</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                    Construindo soluções web <br><span class="text-gradient">robustas e modernas</span>.
+                </h1>
+                <p class="text-text-muted text-lg leading-relaxed">
+                    Olá! Sou o especialista por trás da <strong>AqGoEs</strong>. Sou desenvolvedor Full Stack focado em criar aplicações modernas, funcionais e otimizadas. Unindo uma sólida experiência em suporte e análise técnica no setor público com o estudo constante das tecnologias mais demandadas do mercado, transformo ideias em código de alto desempenho.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#trajetoria" class="border border-custom hover:border-[#6c63ff] px-6 py-3 rounded-lg font-medium transition-all">
+                        Conhecer Trajetória
+                    </a>
+                </div>
+            </div>
+            <div class="md:col-span-5 flex justify-center">
+                <div class="w-72 h-72 rounded-full bg-grad-primary p-1 shadow-2xl">
+                    <div class="w-full h-full bg-bg rounded-full flex flex-col items-center justify-center text-center p-6 transition-colors duration-300">
+                        <span class="text-5xl mb-2">💻</span>
+                        <span class="font-bold text-xl text-text-primary">AqGoEs</span>
+                        <span class="text-sm text-text-muted">Brasília - DF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: TRAJETÓRIA -->
+    <section id="trajetoria" class="bg-bg-2 py-20 border-y border-custom transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gradient">Experiência &amp; Trajetória</h2>
+                <p class="text-text-muted mt-2">Sólida carreira construída com suporte e análise de TI no Senado Federal.</p>
+            </div>
+
+            <!-- TIMELINE -->
+            <div class="relative border-l border-custom ml-4 md:ml-6 space-y-10">
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#ff6584] border-4 border-bg-2"></div>
+                    <span class="text-sm text-[#ff6584] font-semibold">Momento Atual</span>
+                    <h3 class="text-xl font-bold mt-1 text-text-primary">Analista Técnico Sênior (Terceirizado)</h3>
+                    <h4 class="text-text-muted text-sm">Comissões do Senado Federal</h4>
+                    <p class="text-text-muted mt-2 text-sm leading-relaxed">
+                        Atuação estratégica de suporte e análise técnica diretamente nas comissões do Senado Federal, garantindo estabilidade, segurança e eficiência no fluxo tecnológico de processos legislativos críticos.
+                    </p>
+                </div>
+
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#6c63ff] border-4 border-bg-2"></div>
+                    <span class="text-sm text-[#6c63ff] font-semibold">Etapa Anterior</span>
+                    <h3 class="text-xl font-bold mt-1 text-text-primary">Técnico Nível 1 &amp; Nível 2 (Terceirizado)</h3>
+                    <h4 class="text-text-muted text-sm">Senado Federal</h4>
+                    <p class="text-text-muted mt-2 text-sm leading-relaxed">
+                        Atuação na linha de frente do suporte de TI, solucionando incidentes complexos de infraestrutura e sistemas, além de garantir a continuidade operacional das atividades parlamentares.
+                    </p>
+                </div>
+
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#ffa94d] border-4 border-bg-2"></div>
+                    <span class="text-sm text-[#ffa94d] font-semibold">Formação &amp; Autonomia</span>
+                    <h3 class="text-xl font-bold mt-1 text-text-primary">Estudos por Conta própria &amp; Ensino Superior</h3>
+                    <h4 class="text-text-muted text-sm">Graduação Full Stack</h4>
+                    <p class="text-text-muted mt-2 text-sm leading-relaxed">
+                        Unindo a disciplina dos estudos autodidatas com uma formação superior estruturada em Desenvolvimento Full Stack. Dedicação diária ao aprendizado prático de arquitetura de software e engenharia web (Python, HTML, CSS, JS e WordPress).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: TECNOLOGIAS -->
+    <section id="tecnologias" class="py-20 max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gradient">Tecnologias &amp; Especialidades</h2>
+            <p class="text-text-muted mt-2">O conjunto de ferramentas que utilizo para criar soluções completas.</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-html flex items-center justify-center text-white font-extrabold text-lg mb-4 shadow-lg">HTML</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Estrutura Web</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Desenvolvimento de marcação semântica focada em acessibilidade e SEO.</p>
+            </div>
+
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-css flex items-center justify-center text-white font-extrabold text-lg mb-4 shadow-lg">CSS</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Estilização</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Layouts responsivos, animações fluidas e design moderno sob medida.</p>
+            </div>
+
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-js flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">JS</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Interatividade</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Comportamentos dinâmicos, consumo de APIs e lógica client-side.</p>
+            </div>
+
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-python flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">PY</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Back-End &amp; Lógica</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Desenvolvimento focado em lógica, scripts de automação e APIs robustas.</p>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-bg-card border border-custom p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-300">
+            <div>
+                <h3 class="text-xl font-bold text-text-primary">Projetos Rápidos &amp; Landing Pages com WordPress</h3>
+                <p class="text-text-muted text-sm mt-1">Criação de sites institucionais inteligentes e editáveis com a potência do WordPress de forma ágil.</p>
+            </div>
+            <a href="https://wa.me/seunumerodetelefone" target="_blank" class="bg-grad-primary text-white font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity whitespace-nowrap">
+                Solicitar Orçamento
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bg-2 border-t border-custom py-8 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
+            <div>
+                <p>&copy; 2026 aqgoes.com. Todos os direitos reservados.</p>
+                <p class="text-xs mt-1">Desenvolvido por AqGoEs</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#sobre" class="hover:text-text-primary transition-colors">Voltar ao topo</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // --- 1. LÓGICA DO MENU HAMBÚRGUER ---
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function toggleMenu() {
+            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+            
+            menuBtn.setAttribute('aria-expanded', !isExpanded);
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!menu.classList.contains('hidden') && window.innerWidth < 768) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // --- 2. LÓGICA DO DARK / LIGHT MODE ---
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+        const htmlElement = document.documentElement;
+
+        function updateThemeUI(isLight) {
+            themeToggles.forEach(btn => {
+                const moon = btn.querySelector('.icon-moon');
+                const sun = btn.querySelector('.icon-sun');
+                if (isLight) {
+                    moon.classList.add('hidden');
+                    sun.classList.remove('hidden');
+                } else {
+                    moon.classList.remove('hidden');
+                    sun.classList.add('hidden');
+                }
+            });
+        }
+
+        function toggleTheme() {
+            const isLight = htmlElement.classList.toggle('light');
+            if (isLight) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateThemeUI(isLight);
+        }
+
+        themeToggles.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+        // Carrega o tema salvo do usuário
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            htmlElement.classList.add('light');
+            htmlElement.classList.remove('dark');
+            updateThemeUI(true);
+        } else {
+            htmlElement.classList.add('dark');
+            updateThemeUI(false);
+        }
+    </script>
+</body>
+</html>

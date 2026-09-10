@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre · AqGoEs</title>
+  <link rel="stylesheet" href="assets/css/blog_style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body:    ['DM Sans', 'sans-serif'],
+            mono:    ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-body min-h-screen flex flex-col justify-between" style="background:var(--bg);color:var(--text);">
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+    <a href="blog.html" class="flex items-center gap-2 font-display font-black text-2xl tracking-tight" style="color:#c8392b;text-decoration:none;">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="4" fill="#c8392b"/><path d="M5 5h5l3 6-3 6H5l3-6-3-6zm7 0h5l-3 6 3 6h-5l-3-6 3-6z" fill="#fff"/></svg>
+      AqGoEs
+    </a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="blog.html">Início</a>
+      <a href="sobre.html" class="active" style="color:#c8392b;">Sobre</a>
+      <a href="index.html">PortFolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema"><span class="knob"></span></button>
+      <a href="#" class="hidden md:inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white" style="background:#c8392b;">Assine</a>
+      <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-md gap-1.5" style="background:var(--bg);border:1px solid var(--border);" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false">
+        <span class="ham-bar" style="display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s;"></span>
+        <span class="ham-bar" style="display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s;"></span>
+        <span class="ham-bar" style="display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s;"></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" style="max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);background:var(--surface);border-top:1px solid var(--border);">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+      <a href="blog.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="index.html" target="_blank">PortFolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contato.html" class="active" style="color:#c8392b;">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ CONTEÚDO ═══════════════════════════ -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 flex-1 w-full">
+  <div class="max-w-4xl mx-auto space-y-8">
+    
+    <div class="border-b pb-6" style="border-color:var(--border);">
+      <h1 class="font-display text-4xl sm:text-5xl font-extrabold mb-4" style="color:var(--text);">Sobre o Blog</h1>
+      <p class="text-base sm:text-lg leading-relaxed" style="color:var(--muted);">
+        O blog <strong>AqGoEs</strong> foi criado como um caderno pessoal de anotações e estudos práticos cobrindo os principais pilares do desenvolvimento web moderno.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="rounded-xl p-6" style="background:var(--surface);border:1px solid var(--border);">
+        <h3 class="font-display font-bold text-xl mb-2" style="color:#c8392b;">Front-end</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--muted);">
+          Anotações detalhadas sobre estruturação semântica com <strong>HTML</strong>, estilização responsiva com <strong>CSS / Tailwind</strong> e comportamento dinâmico com <strong>JavaScript</strong>.
+        </p>
+      </div>
+
+      <div class="rounded-xl p-6" style="background:var(--surface);border:1px solid var(--border);">
+        <h3 class="font-display font-bold text-xl mb-2" style="color:#c8392b;">Back-end & CMS</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--muted);">
+          Códigos, snippets e dicas focados em <strong>PHP para WordPress</strong>, além de scripts e estruturas em <strong>Python / Django</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="rounded-xl p-6 sm:p-8" style="background:var(--surface);border:1px solid var(--border);">
+      <h2 class="font-display font-bold text-2xl mb-3" style="color:var(--text);">Propósito e Filosofia</h2>
+      <p class="text-sm sm:text-base leading-relaxed mb-4" style="color:var(--muted);">
+        O objetivo principal é documentar a jornada de aprendizado, servindo como uma fonte de consulta rápida para problemas comuns de programação e uma vitrine de boas práticas de código.
+      </p>
+      <div class="flex items-center gap-2 text-xs font-mono" style="color:#c8392b;">
+        <span>// HTML • CSS • JS • PHP • WORDPRESS • PYTHON • DJANGO</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="font-display font-black text-xl mb-3" style="color:#c8392b;">AqGoEs</div>
+        <p class="text-xs leading-relaxed" style="color:var(--muted);">Anotações e estudos sobre desenvolvimento web e programação.</p>
+      </div>
+      <div>
+        <h5 class="font-semibold text-sm mb-3" style="color:var(--text);">Editorias</h5>
+        <ul class="space-y-1.5 text-xs" style="color:var(--muted);">
+          <li><a href="#" style="color:inherit;text-decoration:none;">HTML|CSS</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none;">JS</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none;">Python</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none;">Frameworks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold text-sm mb-3" style="color:var(--text);">Empresa</h5>
+        <ul class="space-y-1.5 text-xs" style="color:var(--muted);">
+          <li><a href="sobre.html" style="color:inherit;text-decoration:none;">Sobre nós</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none;">Redação</a></li>
+          <li><a href="#" style="color:inherit;text-decoration:none;">Anuncie</a></li>
+          <li><a href="contato.html" style="color:inherit;text-decoration:none;">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold text-sm mb-3" style="color:var(--text);">Newsletter</h5>
+        <p class="text-xs mb-3" style="color:var(--muted);">Receba as melhores notícias no seu e-mail.</p>
+        <div class="flex gap-2">
+          <input type="email" placeholder="seu@email.com" class="flex-1 text-xs px-3 py-2 rounded-md outline-none" style="background:var(--bg);border:1px solid var(--border);color:var(--text);"/>
+          <button class="px-3 py-2 rounded-md text-xs font-bold text-white" style="background:#c8392b;">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-2" style="border-color:var(--border);">
+      <p class="text-xs" style="color:var(--muted);">© 2026 AqGoEs Desenvolvimento. Todos os direitos reservados.</p>
+      <div class="flex gap-4 text-xs" style="color:var(--muted);">
+        <a href="#" style="color:inherit;text-decoration:none;">Privacidade</a>
+        <a href="#" style="color:inherit;text-decoration:none;">Termos</a>
+        <a href="#" style="color:inherit;text-decoration:none;">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/blog_script.js"></script>
+</body>
+</html>

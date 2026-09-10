@@ -1,44 +1,157 @@
-   /* Variáveis de cores para o Tema Escuro (Padrão) */
-        :root {
-            --bg: #0a0a0f;
-            --bg-2: #12121a;
-            --bg-card: #1a1a28;
-            --border: rgba(255, 255, 255, 0.08);
-            --text: #e8e8f0;
-            --text-muted: #888899;
-            --grad-primary: linear-gradient(135deg, #6c63ff 0%, #ff6584 50%, #ffa94d 100%);
-            --grad-hero: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a1a1f 100%);
-            --header-bg: rgba(10, 10, 15, 0.9);
-            --menu-bg: rgba(10, 10, 15, 0.95);
-        }
+/* ==========================================================
+   VARIÁVEIS DE COR — Tema Escuro (Padrão)
+   ========================================================== */
+:root {
+    --bg: #0a0a0f;
+    --bg-2: #12121a;
+    --bg-card: #1a1a28;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e8e8f0;
+    --text-muted: #888899;
+    --grad-primary: linear-gradient(135deg, #6c63ff 0%, #ff6584 50%, #ffa94d 100%);
+    --grad-hero: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a1a1f 100%);
+    --header-bg: rgba(10, 10, 15, 0.9);
+    --menu-bg: rgba(10, 10, 15, 0.95);
+    --header-height: 72px;
+}
 
-        /* Override para o Tema Claro */
-        html.light {
-            --bg: #f8fafc;
-            --bg-2: #f1f5f9;
-            --bg-card: #ffffff;
-            --border: rgba(0, 0, 0, 0.1);
-            --text: #0f172a;
-            --text-muted: #64748b;
-            --grad-hero: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f1f5f9 100%);
-            --header-bg: rgba(248, 250, 252, 0.9);
-            --menu-bg: rgba(248, 250, 252, 0.95);
-        }
+/* Override — Tema Claro */
+html.light {
+    --bg: #f8fafc;
+    --bg-2: #f1f5f9;
+    --bg-card: #ffffff;
+    --border: rgba(0, 0, 0, 0.1);
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --grad-hero: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f1f5f9 100%);
+    --header-bg: rgba(248, 250, 252, 0.9);
+    --menu-bg: rgba(248, 250, 252, 0.95);
+}
 
-        .border-custom {
-            border-color: var(--border);
-        }
+.border-custom {
+    border-color: var(--border);
+}
 
-        .text-gradient {
-            background: var(--grad-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.text-gradient {
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-        .header-backdrop {
-            background-color: var(--header-bg);
-        }
+.header-backdrop {
+    background-color: var(--header-bg);
+}
 
-        .menu-backdrop {
-            background-color: var(--menu-bg);
-        }
+.menu-backdrop {
+    background-color: var(--menu-bg);
+}
+
+/* ==========================================================
+   NAVEGAÇÃO SUAVE — scroll com folga para o header fixo
+   ========================================================== */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+section[id] {
+    scroll-margin-top: var(--header-height);
+}
+
+/* ==========================================================
+   HEADER — permanece sempre fixo e visível
+   ========================================================== */
+#site-header {
+    transition: background-color 0.3s ease;
+}
+
+/* ==========================================================
+   LINKS DE NAVEGAÇÃO — sublinhado animado + estado ativo
+   ========================================================== */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--grad-primary);
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================
+   MENU MOBILE — abertura/fechamento suave (sem "pulo")
+   ========================================================== */
+@media (max-width: 767px) {
+    #menu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding-top: 0;
+        padding-bottom: 0;
+        pointer-events: none;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease,
+                    padding 0.4s ease;
+    }
+
+    #menu.menu-open {
+        max-height: 28rem;
+        opacity: 1;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        pointer-events: auto;
+    }
+}
+
+/* ==========================================================
+   MICRO-ANIMAÇÃO DE ENTRADA — blocos de conteúdo
+   ========================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================
+   ACESSIBILIDADE — respeita preferência do usuário por menos movimento
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}

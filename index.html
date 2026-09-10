@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AqGoEs | Web Developer Full Stack</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-bg text-text-primary font-sans antialiased scroll-smooth transition-colors duration-300">
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 header-backdrop backdrop-blur-md border-b border-custom transition-colors duration-300">
+    <header id="site-header" class="sticky top-0 z-50 header-backdrop backdrop-blur-md border-b border-custom transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center relative">
-            
+
             <!-- Logo -->
             <a href="index.html" class="text-2xl font-bold tracking-wider text-gradient z-20">AqGoEs</a>
 
@@ -25,7 +26,7 @@
                 </button>
 
                 <!-- Botão Hambúrguer (Mobile) -->
-                <button id="menu-btn" aria-label="Abrir Menu" aria-expanded="false" class="text-text-primary hover:text-white focus:outline-none p-2">
+                <button id="menu-btn" aria-label="Abrir Menu" aria-controls="menu" aria-expanded="false" class="text-text-primary hover:text-white focus:outline-none p-2">
                     <svg id="icon-open" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -36,14 +37,14 @@
             </div>
 
             <!-- Nav (Desktop + Mobile Dropdown) -->
-            <nav id="menu" class="hidden absolute top-full left-0 w-full menu-backdrop backdrop-blur-lg border-b border-custom p-6 flex-col space-y-4 md:static md:flex md:flex-row md:items-center md:space-y-0 md:space-x-8 md:w-auto md:bg-transparent md:border-none md:p-0 transition-all duration-300 z-10">
-                <a href="#sobre" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Sobre</a>
-                <a href="#trajetoria" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Trajetória</a>
-                <a href="#tecnologias" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Tecnologias</a>
+            <nav id="menu" class="flex flex-col absolute top-full left-0 w-full menu-backdrop backdrop-blur-lg border-b border-custom px-6 md:static md:flex-row md:items-center md:space-y-0 md:space-x-8 md:w-auto md:bg-transparent md:border-none md:p-0 z-10">
+                <a href="#sobre" data-section="sobre" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Sobre</a>
+                <a href="#trajetoria" data-section="trajetoria" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Trajetória</a>
+                <a href="#tecnologias" data-section="tecnologias" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Tecnologias</a>
 
                 <a href="blog.html" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Artigos</a>
-                
-                <div class="pt-4 md:pt-0 border-t border-custom md:border-none md:hidden">
+
+                <div class="py-4 md:pt-0 border-t border-custom md:border-none md:hidden">
                     <a href="https://wa.me/seunumerodetelefone" target="_blank" class="block text-center bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
                         Fale Comigo
                     </a>
@@ -67,7 +68,7 @@
     <!-- SEÇÃO 1: HERO (SOBRE) -->
     <section id="sobre" class="relative py-20 md:py-32 bg-grad-hero transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-12 gap-8 items-center">
-            <div class="md:col-span-7 space-y-6">
+            <div class="md:col-span-7 space-y-6 reveal">
                 <span class="text-gradient font-bold tracking-wider uppercase text-sm block">Desenvolvedor Web Full Stack</span>
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
                     Construindo soluções web <br><span class="text-gradient">robustas e modernas</span>.
@@ -81,7 +82,7 @@
                     </a>
                 </div>
             </div>
-            <div class="md:col-span-5 flex justify-center">
+            <div class="md:col-span-5 flex justify-center reveal">
                 <div class="w-72 h-72 rounded-full bg-grad-primary p-1 shadow-2xl">
                     <div class="w-full h-full bg-bg rounded-full flex flex-col items-center justify-center text-center p-6 transition-colors duration-300">
                         <span class="text-5xl mb-2">💻</span>
@@ -96,14 +97,14 @@
     <!-- SEÇÃO 2: TRAJETÓRIA -->
     <section id="trajetoria" class="bg-bg-2 py-20 border-y border-custom transition-colors duration-300">
         <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <h2 class="text-3xl font-bold text-gradient">Experiência &amp; Trajetória</h2>
                 <p class="text-text-muted mt-2">Sólida carreira construída com suporte e análise de TI no Senado Federal.</p>
             </div>
 
             <!-- TIMELINE -->
             <div class="relative border-l border-custom ml-4 md:ml-6 space-y-10">
-                <div class="relative pl-8">
+                <div class="relative pl-8 reveal">
                     <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#ff6584] border-4 border-bg-2"></div>
                     <span class="text-sm text-[#ff6584] font-semibold">Momento Atual</span>
                     <h3 class="text-xl font-bold mt-1 text-text-primary">Analista Técnico Sênior (Terceirizado)</h3>
@@ -113,7 +114,7 @@
                     </p>
                 </div>
 
-                <div class="relative pl-8">
+                <div class="relative pl-8 reveal">
                     <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#6c63ff] border-4 border-bg-2"></div>
                     <span class="text-sm text-[#6c63ff] font-semibold">Etapa Anterior</span>
                     <h3 class="text-xl font-bold mt-1 text-text-primary">Técnico Nível 1 &amp; Nível 2 (Terceirizado)</h3>
@@ -123,7 +124,7 @@
                     </p>
                 </div>
 
-                <div class="relative pl-8">
+                <div class="relative pl-8 reveal">
                     <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#ffa94d] border-4 border-bg-2"></div>
                     <span class="text-sm text-[#ffa94d] font-semibold">Formação &amp; Autonomia</span>
                     <h3 class="text-xl font-bold mt-1 text-text-primary">Estudos por Conta própria &amp; Ensino Superior</h3>
@@ -138,38 +139,38 @@
 
     <!-- SEÇÃO 3: TECNOLOGIAS -->
     <section id="tecnologias" class="py-20 max-w-6xl mx-auto px-4">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 reveal">
             <h2 class="text-3xl font-bold text-gradient">Tecnologias &amp; Especialidades</h2>
             <p class="text-text-muted mt-2">O conjunto de ferramentas que utilizo para criar soluções completas.</p>
         </div>
 
         <div class="grid md:grid-cols-4 gap-6">
-            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm reveal">
                 <div class="w-12 h-12 rounded-lg bg-grad-html flex items-center justify-center text-white font-extrabold text-lg mb-4 shadow-lg">HTML</div>
                 <h3 class="text-lg font-bold mb-1 text-text-primary">Estrutura Web</h3>
                 <p class="text-text-muted text-xs leading-relaxed">Desenvolvimento de marcação semântica focada em acessibilidade e SEO.</p>
             </div>
 
-            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm reveal">
                 <div class="w-12 h-12 rounded-lg bg-grad-css flex items-center justify-center text-white font-extrabold text-lg mb-4 shadow-lg">CSS</div>
                 <h3 class="text-lg font-bold mb-1 text-text-primary">Estilização</h3>
                 <p class="text-text-muted text-xs leading-relaxed">Layouts responsivos, animações fluidas e design moderno sob medida.</p>
             </div>
 
-            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm reveal">
                 <div class="w-12 h-12 rounded-lg bg-grad-js flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">JS</div>
                 <h3 class="text-lg font-bold mb-1 text-text-primary">Interatividade</h3>
                 <p class="text-text-muted text-xs leading-relaxed">Comportamentos dinâmicos, consumo de APIs e lógica client-side.</p>
             </div>
 
-            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm reveal">
                 <div class="w-12 h-12 rounded-lg bg-grad-python flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">PY</div>
                 <h3 class="text-lg font-bold mb-1 text-text-primary">Back-End &amp; Lógica</h3>
                 <p class="text-text-muted text-xs leading-relaxed">Desenvolvimento focado em lógica, scripts de automação e APIs robustas.</p>
             </div>
         </div>
 
-        <div class="mt-12 bg-bg-card border border-custom p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-300">
+        <div class="mt-12 bg-bg-card border border-custom p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-300 reveal">
             <div>
                 <h3 class="text-xl font-bold text-text-primary">Projetos Rápidos &amp; Landing Pages com WordPress</h3>
                 <p class="text-text-muted text-sm mt-1">Criação de sites institucionais inteligentes e editáveis com a potência do WordPress de forma ágil.</p>
@@ -195,6 +196,6 @@
 
     <!-- JAVASCRIPT -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/tailwind-config.js"></script>
+
 </body>
 </html>
